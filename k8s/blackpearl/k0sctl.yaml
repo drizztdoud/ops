@@ -1,0 +1,43 @@
+---
+apiVersion: k0sctl.k0sproject.io/v1beta1
+kind: Cluster
+metadata:
+  name: blackpearl
+spec:
+  hosts:
+    - ssh:
+        address: 192.168.64.130
+        user: root
+        port: 2022
+        keyPath: ~/.ssh/id_ed25519
+      role: controller
+    - ssh:
+        address: 192.168.64.131
+        user: root
+        port: 2022
+        keyPath: ~/.ssh/id_ed25519
+      role: worker
+    - ssh:
+        address: 192.168.64.132
+        user: root
+        port: 2022
+        keyPath: ~/.ssh/id_ed25519
+      role: worker
+    - ssh:
+        address: 192.168.64.133
+        user: root
+        port: 2022
+        keyPath: ~/.ssh/id_ed25519
+      role: worker
+  k0s:
+    version: 1.26.2+k0s.0
+    config:
+      apiVersion: k0s.k0sproject.io/v1beta1
+      kind: Cluster
+      metadata:
+        name: blackpearl
+      spec:
+        network:
+          provider: calico
+        telemetry:
+          enabled: false
