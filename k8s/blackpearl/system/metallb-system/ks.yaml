@@ -24,7 +24,7 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-    - name: ops-system-metallb-system-metallb-app
+    - name: ops-metallb-system-metallb-app
   prune: true
   interval: 30m
   retryInterval: 1m
