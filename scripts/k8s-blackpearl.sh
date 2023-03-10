@@ -15,6 +15,9 @@ ansible-playbook -i "${ANSIBLE_DIR}/inventory/hosts.yaml" "${ANSIBLE_DIR}/playbo
 k0sctl apply --config="${K0SCTL_PATH}"
 k0sctl kubeconfig > "${KUBECONFIG}" --config "${K0SCTL_PATH}"
 
+# Install Flux
+kubectl apply --server-side -k "${CLUSTER_DIR}/bootstrap"
+
 # Apply cluster configuration
 export KEY_FP=CA5BED07549253B341EA32066AAF42B07E71095E
 kubectl apply -f - <<EOF
