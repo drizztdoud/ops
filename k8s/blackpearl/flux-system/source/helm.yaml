@@ -7,3 +7,12 @@ metadata:
 spec:
   url: https://charts.longhorn.io
   interval: 1h
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: metallb
+  namespace: flux-system
+spec:
+  url: https://metallb.github.io/metallb
+  interval: 1h
