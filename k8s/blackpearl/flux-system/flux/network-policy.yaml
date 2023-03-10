@@ -1,0 +1,34 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-source-controller-ingress
+  namespace: flux-system
+  labels:
+    app.kubernetes.io/instance: flux-system
+    app.kubernetes.io/part-of: flux
+spec:
+  policyTypes:
+    - Ingress
+  podSelector:
+    matchLabels:
+      app: source-controller
+  ingress:
+    - {}
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-notification-controller-ingress
+  namespace: flux-system
+  labels:
+    app.kubernetes.io/instance: flux-system
+    app.kubernetes.io/part-of: flux
+spec:
+  policyTypes:
+    - Ingress
+  podSelector:
+    matchLabels:
+      app: notification-controller
+  ingress:
+    - {}
