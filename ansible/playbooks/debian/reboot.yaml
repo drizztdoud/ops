@@ -1,0 +1,12 @@
+---
+
+- hosts: "{{ _hosts | default('omit') }}"
+
+  pre_tasks:
+    - name: Pausing for 3 seconds...
+      ansible.builtin.pause:
+        seconds: 3
+
+  tasks:
+    - name: Reboot
+      ansible.builtin.reboot: {}

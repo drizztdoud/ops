@@ -1,0 +1,28 @@
+---
+
+- hosts: "{{ _hosts | default('omit') }}"
+
+  vars:
+    timezone: Asia/Shanghai
+    openssh_port: 2022
+    apt_packages:
+      - ca-certificates
+      - curl
+      - dnsutils
+      - git
+      - htop
+      - locales-all
+      - neofetch
+      - net-tools
+      - python3-pip
+      - tmux
+      - vim
+
+  pre_tasks:
+    - name: Pausing for 3 seconds...
+      ansible.builtin.pause:
+        seconds: 3
+      tags: always
+
+  roles:
+    - os.debian-init
