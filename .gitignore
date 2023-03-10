@@ -1,0 +1,5 @@
+### Ansible
+*.retry
+
+### Kubernetes
+kubeconfig.yaml

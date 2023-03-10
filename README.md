@@ -1,0 +1,3 @@
+# Ops
+
+A mono repository for my infrastructure. Dotfiles, Docker, Kubernetes cluster, ...
