@@ -1,0 +1,7 @@
+---
+creation_rules:
+  - path_regex: k8s/.*\.sops\.yaml
+    encrypted_regex: ^(data|stringData)$
+    pgp: CA5BED07549253B341EA32066AAF42B07E71095E
+  - path_regex: ansible/.*\.sops\.yaml
+    pgp: CA5BED07549253B341EA32066AAF42B07E71095E
