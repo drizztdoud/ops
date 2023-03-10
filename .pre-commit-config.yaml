@@ -16,4 +16,4 @@ repos:
     rev: v2.7.1
     hooks:
       - id: prettier
-        files: \.(md|cfg|yaml)$
+        files: \.(md|yaml)$
