@@ -1,1 +1,8 @@
 ---
+
+# standalone
+zerg:
+  hosts:
+    mutalisk: {}
+    scourge: {}
+    lurker: {}
