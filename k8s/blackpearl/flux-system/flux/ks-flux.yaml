@@ -8,7 +8,7 @@ spec:
   interval: 15m
   url: https://github.com/fluxcd/flux2
   ref:
-    tag: v0.40.2
+    tag: v0.41.0
   ignore: |
     # exclude all
     /*
