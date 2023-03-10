@@ -1,5 +1,4 @@
 ---
-
 - name: Package | disable recommends
   ansible.builtin.blockinfile:
     path: /etc/apt/apt.conf.d/02no-recommends

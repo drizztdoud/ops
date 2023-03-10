@@ -1,5 +1,4 @@
 ---
-
 - name: Swap | Disable swap at runtime
   ansible.builtin.command: swapoff -a
   when: ansible_swaptotal_mb > 0

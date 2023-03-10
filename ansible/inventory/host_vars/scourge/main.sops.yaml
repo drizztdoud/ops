@@ -1,24 +1,24 @@
 ansible_host: ENC[AES256_GCM,data:IKSgC03e2dJjK/kljw==,iv:S9XEWqJr4CZhJqaEjqZ8vqm5Pp0scv61E7TkH34NGKo=,tag:RRkMUofd8h9xnAsGFVcTSw==,type:str]
 sops:
-    kms: []
-    gcp_kms: []
-    azure_kv: []
-    hc_vault: []
-    age: []
-    lastmodified: "2023-03-10T08:43:45Z"
-    mac: ENC[AES256_GCM,data:JO0Mas2DFQ69ofl2smo1aee4RlzfON/aALn0IwZ9I1uMhP01eFpSOpmv5UAw1KU0b/PHDWD6Ln/Wi2vIUWHDpEgthieElsnSZvlvtfjJSx4vH+VUKEi9em+KF2QYXdDN7j0ZzwmmOHYA7/lO0vuybhILrFuvMoSDOkTWzmuS1t8=,iv:81Zs26594oRIRyTkSlVevST4HQZ0x4JCZy5Py2ar0+U=,tag:fJ5yn5rLm8EfBsgtioBFZw==,type:str]
-    pgp:
-        - created_at: "2023-03-10T08:43:43Z"
-          enc: |
-            -----BEGIN PGP MESSAGE-----
+  kms: []
+  gcp_kms: []
+  azure_kv: []
+  hc_vault: []
+  age: []
+  lastmodified: "2023-03-10T08:43:45Z"
+  mac: ENC[AES256_GCM,data:JO0Mas2DFQ69ofl2smo1aee4RlzfON/aALn0IwZ9I1uMhP01eFpSOpmv5UAw1KU0b/PHDWD6Ln/Wi2vIUWHDpEgthieElsnSZvlvtfjJSx4vH+VUKEi9em+KF2QYXdDN7j0ZzwmmOHYA7/lO0vuybhILrFuvMoSDOkTWzmuS1t8=,iv:81Zs26594oRIRyTkSlVevST4HQZ0x4JCZy5Py2ar0+U=,tag:fJ5yn5rLm8EfBsgtioBFZw==,type:str]
+  pgp:
+    - created_at: "2023-03-10T08:43:43Z"
+      enc: |
+        -----BEGIN PGP MESSAGE-----
 
-            hF4DSbELs9Rc7FcSAQdAqr69EmUmQjux2UU+zbODZoFeIhSNGuc31W75j/6+aCQw
-            rKIQX9eHDShz+QjucExALqV6DDLbmQBaoQkdOK+rFMAlKkTHbXTauwS8mnA6ophu
-            1GgBCQIQdy2XRsHcBhcyYBp10bX8yLYW71u97kXaEHoEsSwB5uCMEjf+DJz+VvGH
-            lOxnwTwlIGOEOEdI7w0j2y5QJhOAimAqOFXSMhTHEePzh2cxUwTWCLPx4w44DKla
-            cwctdKqoADrZQw==
-            =7iW5
-            -----END PGP MESSAGE-----
-          fp: CA5BED07549253B341EA32066AAF42B07E71095E
-    unencrypted_suffix: _unencrypted
-    version: 3.7.3
+        hF4DSbELs9Rc7FcSAQdAqr69EmUmQjux2UU+zbODZoFeIhSNGuc31W75j/6+aCQw
+        rKIQX9eHDShz+QjucExALqV6DDLbmQBaoQkdOK+rFMAlKkTHbXTauwS8mnA6ophu
+        1GgBCQIQdy2XRsHcBhcyYBp10bX8yLYW71u97kXaEHoEsSwB5uCMEjf+DJz+VvGH
+        lOxnwTwlIGOEOEdI7w0j2y5QJhOAimAqOFXSMhTHEePzh2cxUwTWCLPx4w44DKla
+        cwctdKqoADrZQw==
+        =7iW5
+        -----END PGP MESSAGE-----
+      fp: CA5BED07549253B341EA32066AAF42B07E71095E
+  unencrypted_suffix: _unencrypted
+  version: 3.7.3

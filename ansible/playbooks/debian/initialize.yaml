@@ -1,5 +1,4 @@
 ---
-
 - hosts: "{{ _hosts | default('omit') }}"
 
   vars:

@@ -1,6 +1,4 @@
-
 ---
-
 - name: Host | machine-id | remove /etc/machine-id
   ansible.builtin.file:
     path: /etc/machine-id

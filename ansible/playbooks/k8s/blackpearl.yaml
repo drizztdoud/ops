@@ -1,5 +1,4 @@
 ---
-
 - name: Preparation for k8s 'blackpearl'
   hosts: blackpearl
 
