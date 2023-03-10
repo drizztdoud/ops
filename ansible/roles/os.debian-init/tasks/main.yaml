@@ -1,0 +1,31 @@
+---
+
+- ansible.builtin.include_tasks: host.yaml
+  args:
+    apply:
+      tags: host
+  tags: host
+
+- ansible.builtin.include_tasks: swap.yaml
+  args:
+    apply:
+      tags: swap
+  tags: swap
+
+- ansible.builtin.include_tasks: package.yaml
+  args:
+    apply:
+      tags: package
+  tags: package
+
+- ansible.builtin.include_tasks: machine-id.yaml
+  args:
+    apply:
+      tags: machine-id
+  tags: never,machine-id
+
+- ansible.builtin.include_tasks: openssh.yaml
+  args:
+    apply:
+      tags: openssh
+  tags: never,openssh

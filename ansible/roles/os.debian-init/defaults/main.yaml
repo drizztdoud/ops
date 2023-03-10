@@ -1,0 +1,10 @@
+---
+
+# host
+timezone: UTC
+
+# package
+apt_packages: []
+
+# openssh
+openssh_port: 22

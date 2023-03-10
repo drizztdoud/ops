@@ -1,0 +1,25 @@
+---
+
+- name: OpenSSH | install openssh
+  ansible.builtin.package:
+    name: openssh-server
+    state: present
+
+- name: OpenSSH | configure openssh
+  ansible.builtin.lineinfile:
+    dest: /etc/ssh/sshd_config
+    state: present
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+    validate: sshd -f %s -t
+  with_items:
+    - {regexp: "^PermitRootLogin", line: "PermitRootLogin prohibit-password"}  # Disable root password authentication
+    - {regexp: "^PasswordAuthentication", line: "PasswordAuthentication no"}  # Disallow SSH password authentication
+    - {regexp: "^Port", line: "Port {{ openssh_port }}"}  # Port
+  register: _openssh_configure
+
+- name: OpenSSH | restart openssh
+  ansible.builtin.service:
+    name: ssh
+    state: restarted
+  changed_when: _openssh_configure.changed

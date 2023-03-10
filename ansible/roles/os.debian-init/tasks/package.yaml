@@ -1,0 +1,39 @@
+---
+
+- name: Package | disable recommends
+  ansible.builtin.blockinfile:
+    path: /etc/apt/apt.conf.d/02no-recommends
+    mode: 0644
+    create: true
+    block: |
+      APT::Install-Recommends "false";
+      APT::Install-Suggests "false";
+      APT::Get::Install-Recommends "false";
+      APT::Get::Install-Suggests "false";
+
+- name: Package | upgrade all packages
+  ansible.builtin.apt:
+    upgrade: full
+    update_cache: true
+    cache_valid_time: 3600
+    autoclean: true
+    autoremove: true
+  register: _apt_upgrade
+  retries: 3
+  until: _apt_upgrade is success
+
+- name: Package | install packages
+  ansible.builtin.apt:
+    name: "{{ apt_packages }}"
+    install_recommends: false
+    update_cache: true
+    cache_valid_time: 3600
+    autoclean: true
+    autoremove: true
+  register: _apt_install
+  retries: 3
+  until: _apt_install is success
+  when:
+    - apt_packages is defined
+    - apt_packages is iterable
+    - apt_packages | length > 0
