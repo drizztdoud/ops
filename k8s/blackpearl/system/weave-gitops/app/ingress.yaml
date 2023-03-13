@@ -3,9 +3,8 @@ kind: Ingress
 metadata:
   name: gitops-app
   namespace: flux-system
-  annotations:
-    kubernetes.io/ingress.class: "nginx"
 spec:
+  ingressClassName: nginx
   rules:
     - host: &host gitops.${SECRET_INGRESS_DOMAIN}
       http:
