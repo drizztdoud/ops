@@ -5,4 +5,5 @@ metadata:
   name: cluster-settings
   namespace: flux-system
 data:
+  TIMEZONE: Asia/Shanghai
   METALLB_INGRESS_ADDRESS_POOL: 192.168.64.254/32

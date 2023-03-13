@@ -1,0 +1,16 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: letsencrypt-prod-cert
+  namespace: ingress-nginx
+spec:
+  duration: 2160h # 90d
+  renewBefore: 360h # 15d
+  secretName: letsencrypt-prod-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+    - ${SECRET_INGRESS_DOMAIN}
+    - "*.${SECRET_INGRESS_DOMAIN}"

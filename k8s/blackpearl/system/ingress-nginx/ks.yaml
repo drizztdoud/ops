@@ -1,0 +1,41 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: ops-ingress-nginx-nginx-cert
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: ops-cert-manager-cert-manager-issuer
+  prune: true
+  interval: 30m
+  retryInterval: 1m
+  timeout: 5m
+  sourceRef:
+    kind: GitRepository
+    name: ops
+  path: ./k8s/blackpearl/system/ingress-nginx/cert
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: ops-ingress-nginx-nginx-app
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: ops-metallb-system-metallb-config
+    - name: ops-ingress-nginx-nginx-cert
+  prune: true
+  wait: true
+  interval: 30m
+  retryInterval: 1m
+  timeout: 5m
+  sourceRef:
+    kind: GitRepository
+    name: ops
+  path: ./k8s/blackpearl/system/ingress-nginx/app
+  healthChecks:
+    - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      name: nginx-app
+      namespace: ingress-nginx
