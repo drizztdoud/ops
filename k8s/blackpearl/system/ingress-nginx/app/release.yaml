@@ -32,6 +32,8 @@ spec:
       extraEnvs:
         - name: TZ
           value: ${TIMEZONE}
+      service:
+        externalTrafficPolicy: Local
       publishService:
         enabled: true
       ingressClassResource:
