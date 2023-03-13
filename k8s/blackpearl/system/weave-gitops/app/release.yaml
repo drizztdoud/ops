@@ -1,0 +1,39 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: gitops-app
+  namespace: flux-system
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: weave-gitops
+      version: 4.0.15
+      sourceRef:
+        kind: HelmRepository
+        name: weave-gitops
+        namespace: flux-system
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      remediateLastFailure: true
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    adminUser:
+      create: true
+      username: ${SECRET_WEAVE_GITOPS_ADMIN_USERNAME}
+    networkPolicy:
+      create: true
+  valuesFrom:
+    - kind: Secret
+      name: weave-gitops
+      valuesKey: adminPassword
+      targetPath: adminUser.passwordHash

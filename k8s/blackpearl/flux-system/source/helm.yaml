@@ -34,3 +34,12 @@ metadata:
 spec:
   url: https://kubernetes.github.io/ingress-nginx
   interval: 1h
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: weave-gitops
+  namespace: flux-system
+spec:
+  url: https://helm.gitops.weave.works
+  interval: 1h
